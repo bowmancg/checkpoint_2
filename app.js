@@ -12,8 +12,17 @@ const boss = {
 const player = {
     name: 'The Tarnished',
     health: 100,
-    damage: 5,
+    damage: 10,
     weaponArt: '',
     level: 1
 }
 
+let clickWeapon = [
+    {
+        name: 'Greatsword',
+        price: 100,
+        damage: 50,
+        quantity: 0,
+        
+    }
+]
