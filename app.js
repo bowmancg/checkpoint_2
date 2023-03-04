@@ -15,18 +15,30 @@ const player = {
     currentWeapon: '',
 }
 
-let clickWeapon = [
+const weapons = [
     {
         name: 'Greatsword',
         price: 100,
         damage: 50,
-        quantity: 0,
+        image: 'https://static.miraheze.org/eldenringwiki/7/7c/Greatsword_Full.png?20220601085645'
     },
     {
         name: 'Carian Longsword',
         price: 50,
         damage: 30,
-        quantity: 0
+        image: ''
+    },
+    {
+        name: 'Marika\'s Hammer',
+        price: 180,
+        damage: 150,
+        image: ''
+    },
+    {
+        name: 'Moonveil Katana',
+        price: 120,
+        damage: 90,
+        image: ''
     }
 ]
 
@@ -45,8 +57,7 @@ function playerAttacksBoss() {
     if (boss.maxHealth <= 1000) {
         boss.maxHealth -= tarnishedDamage
     }
-    drawBossStats()
-    drawPlayerStats()
+    hitBoss()
 }
 
 function acquireRunes() {
@@ -57,6 +68,7 @@ function acquireRunes() {
 
 let bossAttack = setInterval(() => {
     player.health -= boss.damage
+    if (player.health < 0) player.health = 0
     drawPlayerStats()
 }, 3000)
 
@@ -70,7 +82,7 @@ function drawPlayerStats() {
     if (player.health <= 0) {
         stopInterval()
         setTimeout(() => {
-            window.alert('You Died')
+            // window.alert('You Died')
         }, 200)
     }
 }
@@ -93,7 +105,7 @@ function drawBossStats() {
 
 function hitBoss() {
     if (boss.health > 0) {
-        boss.health -= 5
+        boss.health -= player.damage
         runes += 30
         drawBossStats()
         drawPlayerStats()

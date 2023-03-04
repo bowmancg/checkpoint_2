@@ -12,3 +12,15 @@
     margin-top: 35rem;
 }
 
+.background-card {
+    background-size: cover;
+    background-attachment: fixed;
+    width: 20vh;
+    height: 20vh;
+    cursor: pointer;
+    background: none;
+}
+
+#weapon-cards .card-img-top {
+    
+}

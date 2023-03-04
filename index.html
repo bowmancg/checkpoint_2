@@ -24,22 +24,52 @@
                 </div>
             </div>
         </div>
+        <div class="button-row row d-flex">
+            <div class="col-4 offset-8">
+                <div onclick="playerAttacksBoss()" class="card background-card">
+                </div>
+
+            </div>
+        </div>
     </main>
     <footer class="footer-row text-center text-danger">
         <div class="row d-flex justify-content-center">
-            <div class="col-4 card bg-dark border border-secondary">
+            <div id="weapon-cards" class="col-4 bg-dark border border-secondary">
                 <h4>Weapons</h4>
-                <span id=""></span>
-                <button onclick="" class="btn btn-outline-info">Spend Runes</button>
-                <span id=""></span>
-                <button onclick="" class="btn btn-outline-info">Spend Runes</button>
+                <div class="card bg-dark border border-secondary">
+                    <img onclick="" class="card-img-top" src="https://static.miraheze.org/eldenringwiki/7/7c/Greatsword_Full.png?20220601085645" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Greatsword</h5>
+                    </div>
+                    <span id=""></span>
+                </div>
+                <div class="card bg-dark border border-secondary">
+                    <img onclick="" class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Carian Longsword</h5>
+                    </div>
+                    <span id=""></span>
+                </div>
+                <div class="card bg-dark border border-secondary">
+                    <img onclick="" class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Marika's Hammer</h5>
+                    </div>
+                    <span id=""></span>
+                </div>
+                <div class="card bg-dark border border-secondary">
+                    <img onclick="" class="card-img-top" src="" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Moonveil Katana</h5>
+                    </div>
+                    <span id=""></span>
+                </div>
             </div>
         </div>
         <div class="row d-flex justify-content-center">
             <div class="col-3 card bg-dark border border-secondary p-2 m-4">
                 <div class="card-body">
                     <p class="card-text fs-5"></p>
-                    <button onclick="playerAttacksBoss()" class="btn btn-outline-info">Attack</button>
                 </div>
             </div>
             <div class="col-3 card bg-dark text-danger border border-secondary p-2 m-4">
@@ -49,7 +79,7 @@
                 </div>
             </div>
             <div class="col-3 card bg-dark border border-secondary p-2 m-4">
-                <h4>The Tarnished</h4>
+                <h4>You</h4>
                 <p id="playerHealth-elem">100</p>
                 <p id="playerDamage-elem"></p>
             </div>
