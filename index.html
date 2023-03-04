@@ -15,19 +15,12 @@
 <body class="bg-secondary bg-image">
     <header class="text-center text-danger">
         <h1>Malenia, Blade of Miquella</h1>
-        <span id=""></span>
     </header>
     <main>
-        <div class="row">
-            <div class="col-6 p-2 m-4 card bg-dark border border-secondary">
-                <div class="card-body">
-                    <p class="card-text fs-5"></p>
-                </div>
-            </div>
-            <div class="col-6 p-2 m-4 card bg-dark border border-secondary">
-                <div class="card-body">
-                    <p class="card-text fs-5"></p>
-                    <button onclick="" class="btn btn-outline"></button>
+        <div class="row d-flex justify-content-center">
+            <div class="col-8 p-2 m-4 card bg-dark border border-secondary">
+                <div class="card-body text-danger fs-5 text-center">
+                    <span id="health-bar"></span>
                 </div>
             </div>
         </div>
@@ -37,13 +30,19 @@
             <div class="col-3 card bg-dark border border-secondary p-2 m-4">
                 <div class="card-body">
                     <p class="card-text fs-5"></p>
-                    <button onclick="" class="btn btn-outline"></button>
+                    <button onclick="playerAttacksBoss()" class="btn btn-outline-info">Attack</button>
+                </div>
+            </div>
+            <div class="col-3 card bg-dark text-danger border border-secondary p-2 m-4">
+                <div class="card-body">
+                    <h4>Runes</h4>
+                    <p id="runes" class="card-text fs-5">0</p>
                 </div>
             </div>
             <div class="col-3 card bg-dark border border-secondary p-2 m-4">
-                <div class="card-body">
-                    <p class="card-text fs-5"></p>
-                </div>
+                <h4>The Tarnished</h4>
+                <p id="playerHealth-elem"></p>
+                <p id="playerDamage-elem"></p>
             </div>
         </div>
     </footer>
