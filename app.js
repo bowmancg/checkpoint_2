@@ -12,7 +12,7 @@ const player = {
     name: 'The Tarnished',
     health: 100,
     damage: 10,
-    currentWeapon: 'Longsword',
+    currentWeapon: '',
 }
 
 let clickWeapon = [
@@ -46,11 +46,11 @@ function playerAttacksBoss() {
         boss.maxHealth -= tarnishedDamage
     }
     drawBossStats()
+    drawPlayerStats()
 }
 
 function acquireRunes() {
-    if (boss.maxHealth != 1000) 
-        runes += 30
+    if (boss.maxHealth != 1000) runes += 30
     playerAttacksBoss()
     drawRunes()
 }
@@ -64,6 +64,9 @@ function drawPlayerStats() {
     let runeElem = document.getElementById('runes')
     let playerHealthElem = document.getElementById('playerHealth-elem')
     let playerDamageElem = document.getElementById('playerDamage-elem')
+    runeElem.innerText = runes
+    playerHealthElem.innerText = player.health.toString()
+    playerDamageElem.innerText = player.damage.toString()
     if (player.health <= 0) {
         stopInterval()
         setTimeout(() => {
@@ -85,6 +88,15 @@ function drawBossStats() {
         setTimeout(() => {
             window.alert('Demigod Slain')
         }, 200)
+    }
+}
+
+function hitBoss() {
+    if (boss.health > 0) {
+        boss.health -= 5
+        runes += 30
+        drawBossStats()
+        drawPlayerStats()
     }
 }
 
