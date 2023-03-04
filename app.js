@@ -55,12 +55,10 @@ function acquireRunes() {
     drawRunes()
 }
 
-function bossAttacksPlayer() {
-    setInterval(() => {
-        player.health -= boss.damage
-        drawPlayerStats()
-    }, 3000)
-}
+let bossAttack = setInterval(() => {
+    player.health -= boss.damage
+    drawPlayerStats()
+}, 3000)
 
 function drawPlayerStats() {
     let runeElem = document.getElementById('runes')
@@ -90,17 +88,8 @@ function drawBossStats() {
     }
 }
 
-function bossHit() {
-    if (boss.maxHealth > 0) {
-        boss.maxHealth -= 10
-        runes += 25
-        drawBossStats()
-        drawPlayerStats()
-    }
-}
-
 function stopInterval() {
-    clearInterval(bossHit())
+    clearInterval(bossAttack)
 }
 
 drawBossStats()
