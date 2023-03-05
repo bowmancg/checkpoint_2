@@ -12,10 +12,15 @@ const player = {
     name: 'The Tarnished',
     health: 100,
     damage: 10,
-    currentWeapon: '',
+    currentWeapon: 'Longsword',
 }
 
 const weapons = [
+    {
+        name: 'Longsword',
+        price: 0,
+        damage: 10,
+    },
     {
         name: 'Greatsword',
         price: 100,
@@ -26,45 +31,44 @@ const weapons = [
         name: 'Carian Longsword',
         price: 50,
         damage: 30,
-        image: ''
+        image: 'https://static.miraheze.org/eldenringwiki/7/76/Carian_Knight%27s_Sword_Full.png'
     },
     {
         name: 'Marika\'s Hammer',
         price: 180,
         damage: 150,
-        image: ''
+        image: 'https://static.miraheze.org/eldenringwiki/e/e7/Marika%27s_Hammer_Full.png'
     },
     {
         name: 'Moonveil Katana',
         price: 120,
         damage: 90,
-        image: ''
+        image: 'https://static.miraheze.org/eldenringwiki/2/2c/Moonveil_Full.png'
     }
 ]
 
 
-function acquireWeapon(name) {
-    let currentWeapon = weapon.find(w => w.name == name)
+function acquireWeapon(weaponName) {
+    let currentWeapon = weapons.find(w => w.name == weaponName)
     if (runes >= currentWeapon.price) {
-        currentWeapon++
         runes -= currentWeapon.price
+        player.currentWeapon = currentWeapon.name
+        player.damage = currentWeapon.damage
         drawPlayerStats()
     }
 }
 
 function playerAttacksBoss() {
-    let tarnishedDamage = player.damage
     if (boss.maxHealth <= 1000) {
-        boss.maxHealth -= tarnishedDamage
+        boss.maxHealth -= player.damage
     }
     hitBoss()
 }
 
-function acquireRunes() {
-    if (boss.maxHealth != 1000) runes += 30
-    playerAttacksBoss()
-    drawRunes()
-}
+// function acquireRunes() {
+//     if (boss.maxHealth != 1000) runes += 30
+//     playerAttacksBoss()
+// }
 
 let bossAttack = setInterval(() => {
     player.health -= boss.damage
@@ -74,10 +78,12 @@ let bossAttack = setInterval(() => {
 
 function drawPlayerStats() {
     let runeElem = document.getElementById('runes')
+    let playerWeaponElem = document.getElementById('current-weapon')
     let playerHealthElem = document.getElementById('playerHealth-elem')
     let playerDamageElem = document.getElementById('playerDamage-elem')
     runeElem.innerText = runes
     playerHealthElem.innerText = player.health.toString()
+    playerWeaponElem.innerText = player.currentWeapon
     playerDamageElem.innerText = player.damage.toString()
     if (player.health <= 0) {
         stopInterval()
@@ -86,6 +92,8 @@ function drawPlayerStats() {
         }, 200)
     }
 }
+
+
 
 function drawBossStats() {
     let bossStatsTemplate = ''
@@ -104,8 +112,7 @@ function drawBossStats() {
 }
 
 function hitBoss() {
-    if (boss.health > 0) {
-        boss.health -= player.damage
+    if (boss.maxHealth >= 0) {
         runes += 30
         drawBossStats()
         drawPlayerStats()

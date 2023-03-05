@@ -9,7 +9,7 @@
 }
 
 .footer-row {
-    margin-top: 35rem;
+    margin-top: 20rem;
 }
 
 .background-card {
@@ -22,5 +22,6 @@
 }
 
 #weapon-cards .card-img-top {
-    
+    scale: 1;
+    cursor: pointer;
 }
