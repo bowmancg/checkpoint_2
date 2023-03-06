@@ -34,7 +34,10 @@
     </main>
     <footer class="footer-row text-center text-danger">
         <div class="row d-flex justify-content-center">
-            <h5 class="text-dark">Weapons</h5>
+            <h5 class="text-dark">Weapons and Upgrades</h5>
+            <div onclick="purchaseBleedEffect()" class="col-1 m-4 card bg-dark border border-secondary">
+                <p class="fs-4">Purchase Bleed Status Effect</p>
+            </div>
             <div id="weapon-cards" class="col-5 card-group bg-dark border border-secondary">
                 <div class="card bg-dark border border-secondary">
                     <img onclick="acquireWeapon('Greatsword')" class="card-img-top" src="https://static.miraheze.org/eldenringwiki/7/7c/Greatsword_Full.png?20220601085645" alt="">
@@ -67,22 +70,26 @@
             </div>
         </div>
         <div class="row d-flex justify-content-center">
-            <div class="col-3 card bg-dark border border-secondary p-2 m-4">
+            <div class="col-2 card bg-dark border border-secondary p-2 m-4">
                 <div class="card-body">
                     <h4>Weapon Equipped</h4>
                     <p id="current-weapon" class="card-text fs-5"></p>
                 </div>
             </div>
-            <div class="col-3 card bg-dark text-danger border border-secondary p-2 m-4">
+            <div class="col-2 card bg-dark text-danger border border-secondary p-2 m-4">
                 <div class="card-body">
                     <h4>Runes</h4>
                     <p id="runes" class="card-text fs-5">0</p>
                 </div>
             </div>
-            <div class="col-3 card bg-dark border border-secondary p-2 m-4">
+            <div class="col-2 card bg-dark border border-secondary p-2 m-4">
                 <h4>You</h4>
                 <p id="playerHealth-elem"></p>
                 <p id="playerDamage-elem"></p>
+            </div>
+            <div class="col-2 card bg-dark border border-secondary p-2 m-4">
+                <h4>Inventory</h4>
+                <p id="inventory"></p>
             </div>
         </div>
     </footer>
